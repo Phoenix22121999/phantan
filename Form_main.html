@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <title>Main</title>
+</head>
+<style>
+    .form_guitien,
+    .form_ruttien {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0, 0.5);
+        overflow: auto;
+    }
+
+    .form_info {
+        background-color: white;
+        box-shadow: 4px 8px 15px 2px rgba(3, 0, 0, 0.9);
+        padding: 10px;
+        border-radius: 15px 15px 15px 15px;
+        animation-name: moveDown;
+        animation-duration: 1s;
+        width: 85%;
+        height: 70%;
+        margin-top: 50px;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+    .grid_view {
+        width: 100%;
+        height: 300px;
+        background-color: rgb(0, 0, 0, 0.5);
+        
+
+    }
+
+    .btn_ruttien,
+    .btn_guitien {
+        float: right;
+        margin-left: 10px;
+
+    }
+
+    @keyframes moveDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-100px);
+        }
+
+        80% {
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<body>
+    <div class="form_guitien" id="form_guitien">
+        <div class="container form_login">
+            <form class="form_info" action="" method="POST">
+                <span onclick="document.getElementById('form_guitien').style.display='none'" class="close"
+                    title="Close form">&times;</span>
+                <h2>Phiếu Gửi Tiền</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="MaPhieu">Mã Phiếu</label>
+                            <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="CMND">CMND</label>
+                            <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="CMND">CMND</label>
+                            <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Họ Tên Khách Hàng</label>
+                            <input type="text" class="form-control" id="Name" name="Name" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Address">Địa Chỉ</label>
+                            <input type="text" class="form-control" id="Address" name="Address" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="TenDichVu">Tên Dịch Vụ</label>
+                            <input type="text" class="form-control" id="TenDichVu" name="TenDichVu" autocomplete="off"
+                                required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="Birthday">Ngày Sinh</label>
+                            <input type="date" class="form-control" id="Birthday" name="Birthday" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NgayGui">Ngày Gửi</label>
+                            <input type="date" class="form-control" id="NgayGui" name="NgayGui" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NgayRut">Ngày Rút</label>
+                            <input type="date" class="form-control" id="NgayRut" name="NgayRut" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="myState">State</label>
+                            <select id="myState" class="form-control">
+                                <option value="dv10">Dịch Vụ 10</option>
+                                <option value="dv11">Dịch Vụ 11</option>
+                                <option value="dv12">Dịch Vụ 12</option>
+                                <option value="dv40">Dịch Vụ 40</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="SoTien">Số Tiền Gửi</label>
+                            <input type="Number" class="form-control" id="SoTien" name="SoTien" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="LaiSuat">Lãi Suất</label>
+                            <input type="Number" class="form-control" id="LaiSuat" name="LaiSuat" autocomplete="off"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default btn-success btn_signin">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <div class="form_ruttien" id="form_ruttien">
+        <div class="container form_login">
+            <form class="form_info" action="" method="POST">
+                <span onclick="document.getElementById('form_ruttien').style.display='none'" class="close"
+                    title="Close form">&times;</span>
+                <h2>Phiếu Rút Tiền</h2>
+                <div class="row">
+                    <div class="col-6 ">
+                        <div class="form-group">
+                            <label for="MaPhieu">Mã Phiếu</label>
+                            <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="CMND">CMND</label>
+                            <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="CMND">CMND</label>
+                            <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Họ Tên Khách Hàng</label>
+                            <input type="text" class="form-control" id="Name" name="Name" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Address">Địa Chỉ</label>
+                            <input type="text" class="form-control" id="Address" name="Address" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="TenDichVu">Tên Dịch Vụ</label>
+                            <input type="text" class="form-control" id="TenDichVu" name="TenDichVu" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="myState">Dịch Vụ</label>
+                            <select id="myState" class="form-control">
+                                <option value="dv10">Dịch Vụ 10</option>
+                                <option value="dv11">Dịch Vụ 11</option>
+                                <option value="dv12">Dịch Vụ 12</option>
+                                <option value="dv40">Dịch Vụ 40</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6 ">
+                        <div class="form-group">
+                            <label for="Birthday">Ngày Sinh</label>
+                            <input type="date" class="form-control" id="Birthday" name="Birthday" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NgayGui">Ngày Gửi</label>
+                            <input type="date" class="form-control" id="NgayGui" name="NgayGui" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NgayRut">Ngày Rút</label>
+                            <input type="date" class="form-control" id="NgayRut" name="NgayRut" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="SoTien">Số Tiền Gửi</label>
+                            <input type="Number" class="form-control" id="SoTien" name="SoTien" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="LaiSuat">Lãi Suất</label>
+                            <input type="Number" class="form-control" id="LaiSuat" name="LaiSuat" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="TienLai">Số Tiền Lãi</label>
+                            <input type="Number" class="form-control" id="TienLai" name="TienLai" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="TongTien">Tổng Số Tiền</label>
+                            <input type="Number" class="form-control" id="TongTien" name="TongTien" autocomplete="off"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default btn-success btn_signup">Save</button>
+            </form>
+        </div>
+    </div>
+    <div class="conatiner-fluid">
+        <div class="container">
+            <form class="form-inline">
+                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                    aria-label="Search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form> <br>
+        </div>
+        <div class="grid_view">
+            Danh Sách Khách Hàng
+        </div>
+
+    </div>
+    <div class="group-inline">
+        <div class="container-fluid" style="align-items: center;">
+            <input type="button" class="btn-success btn_guitien" value="Phiếu Gửi Tiền">
+        </div>
+        <div class="container-fluid" style="align-items: center;">
+            <input type="button" class="btn-success btn_ruttien" value="Phiếu Rút Tiền">
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.btn_guitien').on('click', function () {
+                document.getElementById('form_guitien').style.display = 'block';
+            });
+            $('.btn_ruttien').on('click', function () {
+                document.getElementById('form_ruttien').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+
+</html>
