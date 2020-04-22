@@ -9,6 +9,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <title>Main</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script defer src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <style>
     .form_guitien,
@@ -56,6 +59,12 @@
 
     }
 
+    #table td{
+    color: white;
+    }
+    #table td a{
+    color: white;
+    }
     @keyframes moveDown {
         0% {
             opacity: 0;
@@ -248,6 +257,18 @@
         </div>
         <div class="grid_view">
             Danh Sách Khách Hàng
+            <table id="table" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">ĐỊA CHỈ</th>
+                        <th scope="col">CMND</th>
+                        <th scope="col">NGÀY NHẬP PHIẾU</th>
+                        <th scope="col">CHI NHÁNH</th>
+                        <th scope="col">THAO TÁC</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
 
     </div>
