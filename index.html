@@ -160,9 +160,9 @@
             </form>
         </div>
     </div>
-    <div class="form_ruttien" id="form_ruttien">
+    <div class="form_ruttien" id="form_ruttien" >
         <div class="container form_login">
-            <form class="form_info" action="" method="POST">
+            <form class="form_info" id="btn_ruttien" action="./php/setPhieu.php" method="POST">
                 <span onclick="document.getElementById('form_ruttien').style.display='none'" class="close"
                     title="Close form">&times;</span>
                 <h2>Phiếu Rút Tiền</h2>
@@ -222,7 +222,7 @@
                         </div>
                         <div class="form-group">
                             <label for="LaiSuat">Lãi Suất</label>
-                            <input type="Number" class="form-control" id="LaiSuat" name="LaiSuat" autocomplete="off"
+                            <input type="Number" step="any" class="form-control" id="LaiSuat" name="LaiSuat" autocomplete="off"
                                 required>
                         </div>
                         <div class="form-group">
@@ -237,7 +237,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default btn-success btn_signup">Save</button>
+                <button type="submit" id="submit_ruttien" class="btn btn-default btn-success btn_signup">Save</button>
             </form>
         </div>
     </div>
