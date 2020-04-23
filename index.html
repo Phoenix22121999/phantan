@@ -48,7 +48,7 @@
         width: 100%;
         height: 300px;
         background-color: rgb(0, 0, 0, 0.5);
-        
+        overflow: auto;
 
     }
 
@@ -83,6 +83,7 @@
 </style>
 
 <body>
+    
     <div class="form_guitien" id="form_guitien">
         <div class="container form_login">
             <form class="form_info" action="" method="POST">
@@ -138,10 +139,8 @@
                         <div class="form-group">
                             <label for="myState">State</label>
                             <select id="myState" class="form-control">
-                                <option value="dv10">Dịch Vụ 10</option>
-                                <option value="dv11">Dịch Vụ 11</option>
-                                <option value="dv12">Dịch Vụ 12</option>
-                                <option value="dv40">Dịch Vụ 40</option>
+                                <option value="" selected>CHỌN DỊCH VỤ</option>
+                                
                             </select>
                         </div>
                         <div class="form-group">
@@ -178,10 +177,6 @@
                             <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
                         </div>
                         <div class="form-group">
-                            <label for="CMND">CMND</label>
-                            <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
                             <label for="Name">Họ Tên Khách Hàng</label>
                             <input type="text" class="form-control" id="Name" name="Name" autocomplete="off" required>
                         </div>
@@ -198,10 +193,8 @@
                         <div class="form-group">
                             <label for="myState">Dịch Vụ</label>
                             <select id="myState" class="form-control">
-                                <option value="dv10">Dịch Vụ 10</option>
-                                <option value="dv11">Dịch Vụ 11</option>
-                                <option value="dv12">Dịch Vụ 12</option>
-                                <option value="dv40">Dịch Vụ 40</option>
+                                <option value="cn" selected>CHỌN DỊCH VỤ</option>
+                                
                             </select>
                         </div>
                     </div>
@@ -249,11 +242,14 @@
     </div>
     <div class="conatiner-fluid">
         <div class="container">
-            <form class="form-inline">
-                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-                    aria-label="Search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form> <br>
+            <div>
+                <div class="btn-group">
+                    <a href="#"><button type="button" id="btn_signup" class="btn btn-secondary">Sign Up </button></a>
+                    <button type="button" id="btn_logout" class="btn btn-secondary" style="display: none;">Logout</button>
+                    <a href="#"><button type="button" id="btn_admin" class="btn btn-secondary" style="display: none;">ADMIN</button></a>               
+                    <a href="#" id="name_user" class="name_user">Tên User</a>
+                </div>
+            </div>
         </div>
         <div class="grid_view">
             Danh Sách Khách Hàng
