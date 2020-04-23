@@ -81,7 +81,7 @@
                     title="Close form">&times;</span>
                 <h2>Phiếu Gửi Tiền</h2>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="MaPhieu">Mã Phiếu</label>
                             <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off"
@@ -110,7 +110,7 @@
                                 required>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="Birthday">Ngày Sinh</label>
                             <input type="date" class="form-control" id="Birthday" name="Birthday" autocomplete="off"
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default btn-success btn_signin">Sign Up</button>
+                <button type="submit" class="btn btn-default btn-primary btn_signin">Sign Up</button>
             </form>
         </div>
     </div>
@@ -158,7 +158,7 @@
                     title="Close form">&times;</span>
                 <h2>Phiếu Rút Tiền</h2>
                 <div class="row">
-                    <div class="col-6 ">
+                    <div class="col-md-6 ">
                         <div class="form-group">
                             <label for="MaPhieu">Mã Phiếu</label>
                             <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off"
@@ -196,7 +196,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-6 ">
+                    <div class="col-md-6 ">
                         <div class="form-group">
                             <label for="Birthday">Ngày Sinh</label>
                             <input type="date" class="form-control" id="Birthday" name="Birthday" autocomplete="off"
@@ -234,7 +234,61 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default btn-success btn_signup">Save</button>
+                <button type="submit" class="btn btn-default btn-primary btn_signup">Save</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="container form_login">
+            <form class="form_info" action="" method="POST">
+                <span onclick="document.getElementById('form_guitien').style.display='none'" class="close"
+                    title="Close form">&times;</span>
+                <h2>Khách Hàng</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="CMND">CMND</label>
+                            <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NgayCap">Ngày Cấp</label>
+                            <input type="date" class="form-control" id="NgayCap" name="NgayCap" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Họ Tên Khách Hàng</label>
+                            <input type="text" class="form-control" id="Name" name="Name" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Address">Địa Chỉ</label>
+                            <input type="text" class="form-control" id="Address" name="Address" autocomplete="off"
+                                required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Birthday">Ngày Sinh</label>
+                            <input type="date" class="form-control" id="Birthday" name="Birthday" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="SoTien">Số Tiền Gửi</label>
+                            <input type="Number" class="form-control" id="SoTien" name="SoTien" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="LaiSuat">Lãi Suất</label>
+                            <input type="Number" class="form-control" id="LaiSuat" name="LaiSuat" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="MaCN">Mã Chi Nhánh</label>
+                            <input type="Number" class="form-control" id="MaCN" name="MaCN" autocomplete="off"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default btn-primary btn_signin">Sign Up</button>
             </form>
         </div>
     </div>
