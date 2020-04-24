@@ -187,8 +187,4 @@ $(document).ready(function () {
             }
         });
     });
-    // $('#submit_ruttien').click(function () { 
-    //     console.log('dat')
-        
-    // });
 });
