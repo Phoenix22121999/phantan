@@ -7,11 +7,13 @@ $(document).ready(function () {
 
     $('#form_ruttien #SoTien').keyup(function () { 
         console.log($('#form_ruttien #NgayRut').val())
-        var gui = new Date($('#form_ruttien #NgayRut').val())
+        var han = new Date($('#form_ruttien #NgayRut').val())
+        var now = new Date($('#form_ruttien #NgayGui').val())
         console.log(gui)
         if($('#form_ruttien #LaiSuat').val()==' '){
             lai = 0
         }
+    
     });
 
     $('.btn_ruttien').click(function () { 

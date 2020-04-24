@@ -12,7 +12,8 @@
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script defer src="./js/index.js"></script>
     <link rel="stylesheet" href="./css/index.css">
-    <script src="./js/ruttien.js"></script>
+    <script defer src="./js/ruttien.js"></script>
+    <script defer src="./js/guitien.js"></script>
 </head>
 <style>
     body{
@@ -138,7 +139,7 @@
                         <div class="form-group">
                             <label for="MaPhieu">Mã Phiếu</label>
                             <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off"
-                                required>
+                                disabled>
                         </div>
                         <div class="form-group">
                             <label for="MaGDV">Mã GVV</label>
@@ -199,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default btn-primary save_guitien">Save</button>
+                <button type="button" class="btn btn-default btn-primary save_guitien">Save</button>
             </form>
         </div>
     </div>

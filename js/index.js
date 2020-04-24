@@ -176,32 +176,11 @@ $(document).ready(function () {
         });
     }
     
-    $('.btn_guitien').click(function () { 
-        let today = new Date()
-        $('#form_guitien #NgayGui').val(today.toISOString().slice(0, 10));
-        
-    });
+    
     
     $('.btn_rate').click(function (e) { 
         let today = new Date()
         $('#form_rate #NgauAp').val(today.toISOString().slice(0, 10));
-    });
-    $('#form_guitien #myState').change(function () {
-        setDateOut('#form_guitien #NgayRut',$(this).val())
-        console.log($('#form_guitien #myState option:selected').data('name'))
-        // setNameSV('#form_guitien #TenDichVu',$('#myState option:selected').data('name'))
-        $('#form_guitien #TenDichVu').val($('#form_guitien #myState option:selected').data('name'));
-        $.ajax({
-            type: "post",
-            url: "./php/getLaiSuat.php",
-            data: {
-                MaDV : $('#myState option:selected').text()
-            },
-            success: function (response) {
-                var obj = JSON.parse(response)
-                $('#form_guitien #LaiSuat').val(obj.LaiSuat);
-            }
-        });
     });
     
     $('#form_service #myState').change(function () { 
