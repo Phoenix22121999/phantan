@@ -318,14 +318,15 @@ $(document).ready(function () {
                     var GDVRut = $('<td>',{
                         text: obj[i].GDVRut
                     })
-                     var edit = $('<a>',{
+                    var LapPhieuRut = $('<a>',{
                         href : '#',
-                        'class': 'Edit',
+                        'class': 'PhieuRut',
                         'data-MaPhieu' : obj[i].MaPhieu,
                         'data-NgayGui' : obj[i].NgayGui.date.substr(0, 10),
                         'data-CMND' : obj[i].cmnd,
                         'data-LaiSuat' :obj[i].LaiSuat,
-                        'data-macn' : obj[i].MACN,
+                        'data-TienGui' : obj[i].TienGui,
+                        'data-NgayDenHan' : obj[i].NgayDenHan.date.substr(0, 10),
                         text : 'Lập Phiếu Rút'
                     })
                     // var span = $('<span>',{
@@ -342,7 +343,7 @@ $(document).ready(function () {
                     //     text : 'Xóa'
                     // })
                     var action = $('<td>')
-                    // $(edit).appendTo(action);
+                    $(LapPhieuRut).appendTo(action);
                     // $(span).appendTo(action);
                     // $(del).appendTo(action);
                     var row = $('<tr>',{'class': 'phieu_list'})
@@ -353,6 +354,7 @@ $(document).ready(function () {
                     $(NgayDenHan).appendTo(row);
                     $(GDVGui).appendTo(row);
                     $(GDVRut).appendTo(row);
+                    $(action).appendTo(row);
                     $(row).appendTo('#table_phieu');
                 }
             }
