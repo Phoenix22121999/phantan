@@ -14,7 +14,7 @@ $data = array();
 $data_tmp = array();
 $i = 1;
 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_BOTH)) {
-    $data_tmp[$i] = array('HoTen' => $row['HOTEN'], 'diachi' => $row['DIACHI'], 'cmnd' => $row['CMND'], 'ngaycap' => $row['NGAYCAP'], 'MACN' => $row['MACN']);
+    $data_tmp[$i] = array('HoTen' => $row['HOTEN'], 'diachi' => $row['DIACHI'], 'cmnd' => $row['CMND'], 'ngaycap' => $row['NGAYCAP'], 'MACN' => preg_replace('/\s+/', '', $row['MACN']));
     $i++;
     // echo $row['LastName'] . ", " . $row['FirstName'] . "<br />";
 }
