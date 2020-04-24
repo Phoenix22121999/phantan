@@ -103,10 +103,10 @@
     }
 
 
-    #table td{
+    .table td{
     color: white;
     }
-    #table td a{
+    .table td a{
     color: white;
     }
     @keyframes moveDown {
@@ -443,7 +443,7 @@
     <div class="conatiner-fluid">
         <div class="container grid_view">
             <h1 style="text-align: center; color: white;">Danh Sách Khách Hàng</h1>
-            <table id="table" class="table">
+            <table id="table_khach" class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">HỌ VÀ TÊN</th>
@@ -459,7 +459,7 @@
     </div>
     <div class="container grid_view_Phieu">
         <h1 style="text-align: center; color: white;">Danh Sách Phiếu</h1>
-        <form action="" method="POST" style="float: right; margin-bottom: 10px;">  
+        <form style="float: right; margin-bottom: 10px;">  
             <div class="form-inline">                
                 <select id="Time" class="form-control "style="width:300px ,height:25px;margin-right:10px">
                     <option value="cn" selected>Chọn thời gian để lọc</option>
@@ -467,12 +467,12 @@
                     <option value="month" selected>1 Tháng</option>
                     <option value="year" selected>1 Năm</option>
                 </select>
-                <button type="submit"><i class="fa fa-search" style="height:25px"></i></button>
+                <button type="button" id="btn_search"><i class="fa fa-search" style="height:25px"></i></button>
                 
             </div>
             
         </form>
-        <table id="table" class="table">
+        <table id="table_phieu" class="table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Mã Phiếu</th>
