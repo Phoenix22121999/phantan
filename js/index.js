@@ -56,7 +56,7 @@ $(document).ready(function () {
                 $(ngaycap).appendTo(row);
                 $(MACN).appendTo(row);
                 $(action).appendTo(row);
-                $(row).appendTo('#table');
+                $(row).appendTo('#table_khach');
             }
         }
     });
@@ -126,8 +126,6 @@ $(document).ready(function () {
         $(select).text(name);
     }
     function getOP(){
-        
-        
         $.ajax({
             type: "post",
             url: "./php/getDichVu.php",
@@ -176,32 +174,11 @@ $(document).ready(function () {
         });
     }
     
-    $('.btn_guitien').click(function () { 
-        let today = new Date()
-        $('#form_guitien #NgayGui').val(today.toISOString().slice(0, 10));
-        
-    });
+    
     
     $('.btn_rate').click(function (e) { 
         let today = new Date()
         $('#form_rate #NgauAp').val(today.toISOString().slice(0, 10));
-    });
-    $('#form_guitien #myState').change(function () {
-        setDateOut('#form_guitien #NgayRut',$(this).val())
-        console.log($('#form_guitien #myState option:selected').data('name'))
-        // setNameSV('#form_guitien #TenDichVu',$('#myState option:selected').data('name'))
-        $('#form_guitien #TenDichVu').val($('#form_guitien #myState option:selected').data('name'));
-        $.ajax({
-            type: "post",
-            url: "./php/getLaiSuat.php",
-            data: {
-                MaDV : $('#myState option:selected').text()
-            },
-            success: function (response) {
-                var obj = JSON.parse(response)
-                $('#form_guitien #LaiSuat').val(obj.LaiSuat);
-            }
-        });
     });
     
     $('#form_service #myState').change(function () { 
@@ -308,4 +285,77 @@ $(document).ready(function () {
         
     });
     
+    $('#btn_search').click(function () { 
+        $('#table_phieu .phieu_list').empty();
+        $.ajax({
+            type: "post",
+            url: "./php/getPhieu.php",
+            data: {
+                time: $('.grid_view_Phieu #Time').val()
+            },
+            success: function (response) {
+                var obj = JSON.parse(response)
+                //console.log(obj)
+                for (let i = 1; i <= Object.keys(obj).length; i++) {
+                    var MaPhieu = $('<td>',{
+                        text: obj[i].MaPhieu
+                    })
+                    var NgayGui = $('<td>',{
+                        text: obj[i].NgayGui.date.substr(0, 10)
+                    })
+                    var LaiSuat = $('<td>',{
+                        text: obj[i].LaiSuat
+                    })
+                    var SoTIenGui = $('<td>',{
+                        text: obj[i].TienGui
+                    })
+                    var NgayDenHan = $('<td>',{
+                        text: obj[i].NgayDenHan.date.substr(0,10)
+                    })
+                    var GDVGui = $('<td>',{
+                        text: obj[i].GDVGui
+                    })
+                    var GDVRut = $('<td>',{
+                        text: obj[i].GDVRut
+                    })
+                     var edit = $('<a>',{
+                        href : '#',
+                        'class': 'Edit',
+                        'data-MaPhieu' : obj[i].MaPhieu,
+                        'data-NgayGui' : obj[i].NgayGui.date.substr(0, 10),
+                        'data-CMND' : obj[i].cmnd,
+                        'data-LaiSuat' :obj[i].LaiSuat,
+                        'data-macn' : obj[i].MACN,
+                        text : 'Lập Phiếu Rút'
+                    })
+                    // var span = $('<span>',{
+                    //     text : ' | '
+                    // })
+                    // var del = $('<a>',{
+                    //     href : '#',
+                    //     'class': 'Delete',
+                    //     'data-hoten' : obj[i].HoTen,
+                    //     'data-diachi' :  obj[i].diachi,
+                    //     'data-cmnd' : obj[i].cmnd,
+                    //     'data-ngaycap' :obj[i].ngaycap.date.substr(0, 10),
+                    //     'data-macn' : obj[i].MACN,
+                    //     text : 'Xóa'
+                    // })
+                    var action = $('<td>')
+                    // $(edit).appendTo(action);
+                    // $(span).appendTo(action);
+                    // $(del).appendTo(action);
+                    var row = $('<tr>',{'class': 'phieu_list'})
+                    $(MaPhieu).appendTo(row);
+                    $(NgayGui).appendTo(row);
+                    $(LaiSuat).appendTo(row);
+                    $(SoTIenGui).appendTo(row);
+                    $(NgayDenHan).appendTo(row);
+                    $(GDVGui).appendTo(row);
+                    $(GDVRut).appendTo(row);
+                    $(row).appendTo('#table_phieu');
+                }
+            }
+        });
+    });
 });
