@@ -319,7 +319,7 @@ $(document).ready(function () {
                         text: obj[i].GDVRut
                     })
                     var LapPhieuRut = $('<a>',{
-                        href : '#',
+                        href : 'javascript:void(0);',
                         'class': 'PhieuRut',
                         'data-MaPhieu' : obj[i].MaPhieu,
                         'data-NgayGui' : obj[i].NgayGui.date.substr(0, 10),
@@ -359,5 +359,12 @@ $(document).ready(function () {
                 }
             }
         });
+    });
+    // $('.PhieuRut').click(function () { 
+    //     console.log('dat')
+    // });
+    $(document).on('click','.PhieuRut',function(){
+        document.getElementById('form_ruttien').style.display = 'block';
+        
     });
 });
