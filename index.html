@@ -9,7 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <title>Main</title>
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script defer src="./js/index.js"></script>
     <link rel="stylesheet" href="./css/index.css">
     <script defer src="./js/ruttien.js"></script>
@@ -17,17 +18,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
-    body{
+    body {
         background-color: #886A08;
     }
-    h2{
+
+    h2 {
         text-align: center;
     }
+
     .form_guitien,
     .form_ruttien,
     .form_customer,
     .form_service,
-    .form_rate{
+    .form_rate {
         display: none;
         position: fixed;
         left: 0;
@@ -37,8 +40,9 @@
         background-color: rgb(0, 0, 0, 0.5);
         overflow: auto;
     }
+
     .form_info_service,
-    .form_info_rate{
+    .form_info_rate {
         background-color: white;
         padding: 10px;
         width: 95%;
@@ -46,10 +50,10 @@
         margin-top: 100px;
         margin-bottom: 10px;
         padding-top: 10px;
-        
+
 
     }
-    
+
     .form_info {
         background-color: white;
         box-shadow: 4px 8px 15px 2px rgba(3, 0, 0, 0.9);
@@ -76,47 +80,60 @@
         margin-bottom: 20px;
         background-color: rgb(0, 0, 0, 0.5);
         overflow: auto;
-        border: 1px , solid;
+        border: 1px, solid;
 
     }
+
     .btn_ruttien,
     .btn_guitien,
-    .btn_customer{
+    .btn_customer {
         float: right;
         margin-left: 10px;
         margin-top: 50px;
     }
+
     .btn_service,
-    .btn_rate{
+    .btn_rate {
         float: left;
         margin-left: 10px;
         margin-top: 50px;
     }
+
     .btn_signup,
-    .btn_admin, 
-    .btn_logout{
+    .btn_admin,
+    .btn_logout {
         margin-right: 5px;
     }
-    .info{
+
+    .info {
         float: right;
         margin-bottom: 10px;
     }
 
 
-    .table td{
-    color: white;
+    .table td {
+        color: white;
     }
-    .table td a{
-    color: white;
+
+    .table td a {
+        color: white;
     }
-    table,tr,th,td{
+
+    table,
+    tr,
+    th,
+    td {
         position: relative;
         border: 1px solid white;
     }
-    #table_phieu tr,th,td{
+
+    #table_phieu tr,
+    th,
+    td {
         min-width: 160px;
         overflow: auto;
     }
+
     @keyframes moveDown {
         0% {
             opacity: 0;
@@ -132,11 +149,12 @@
             transform: translateY(0);
         }
     }
+
     @keyframes moveUp {
         0% {
             opacity: 0;
             transform: translateY(100px);
-            
+
         }
 
         80% {
@@ -148,11 +166,12 @@
             transform: translateY(0);
         }
     }
+
     @keyframes moveRight {
         0% {
             opacity: 0;
             transform: translateX(100px);
-            
+
         }
 
         80% {
@@ -164,6 +183,7 @@
             transform: translateX(0);
         }
     }
+
     @keyframes moveLeft {
         0% {
             opacity: 0;
@@ -180,6 +200,7 @@
         }
     }
 </style>
+
 <body>
     <div class="container">
         <div>
@@ -188,16 +209,83 @@
                     <input type="button" id="btn_signup" class="btn-secondary btn_signup" value="Sign Up">
                 </div>
                 <div class="container" style="align-items: center;">
-                    <input type="button" id="btn_logout" class="btn-secondary btn_logout" style="display: none;" value="Log Out">
+                    <input type="button" id="btn_logout" class="btn-secondary btn_logout" style="display: none;"
+                        value="Log Out">
                 </div>
                 <div class="container" style="align-items: center;">
-                    <input type="button" id="btn_admin" class="btn-secondary btn_admin" style="display: none;" value="Admin">
+                    <input type="button" id="btn_admin" class="btn-secondary btn_admin" style="display: none;"
+                        value="Admin">
                 </div>
-                <button type="button" id="btn_admin" class="btn btn-secondary btn_admin" style="display: none;">Admin</button>              
+                <button type="button" id="btn_admin" class="btn btn-secondary btn_admin"
+                    style="display: none;">Admin</button>
                 <a href="#" id="name_user" class="name_user" style="color: black;">Tên User</a>
             </div>
         </div>
     </div>
+    <div class="conatiner-fluid">
+        <div class="container-fluid grid_view">
+            <h1 style="text-align: center; color: white;">Danh Sách Khách Hàng</h1>
+            <table id="table_khach" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">HỌ VÀ TÊN</th>
+                        <th scope="col">ĐỊA CHỈ</th>
+                        <th scope="col">CMND</th>
+                        <th scope="col">NGÀY NHẬP PHIẾU</th>
+                        <th scope="col">CHI NHÁNH</th>
+                        <th scope="col">THAO TÁC</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <div class="container-fluid grid_view_Phieu">
+        <h1 style="text-align: center; color: white;">Danh Sách Phiếu</h1>
+        <form style="float: right; margin-bottom: 10px;">
+            <div class="form-inline">
+                <select id="Time" class="form-control " style="width:300px ,height:25px;margin-right:10px">
+                    <option value="cn" selected>Chọn thời gian để lọc</option>
+                    <option value="day" selected>1 Ngày</option>
+                    <option value="month" selected>1 Tháng</option>
+                    <option value="year" selected>1 Năm</option>
+                </select>
+                <button type="button" id="btn_search"><i class="fa fa-search" style="height:25px"></i></button>
+
+            </div>
+
+        </form>
+        <table id="table_phieu" class="table table_phieu">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Mã Phiếu</th>
+                    <th scope="col">Ngày Gửi</th>
+                    <th scope="col">Lãi Suất</th>
+                    <th scope="col">Số Tiền Gửi</th>
+                    <th scope="col">Ngày Đến Hạn</th>
+                    <th scope="col">Nhân Viên Gửi</th>
+                    <th scope="col">Nhân Viên Rút</th>
+                    <th scope="col">Thao Tác</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="group-inline">
+        <div class="container" style="align-items: center;">
+            <input type="button" class="btn-primary btn_guitien" value="Phiếu Gửi Tiền">
+        </div>
+        <div class="container" style="align-items: center;">
+            <input type="button" class="btn-primary btn_ruttien" value="Phiếu Rút Tiền">
+        </div>
+        <div class="container" style="align-items: center;">
+            <input type="button" class="btn-primary btn_service" value="Dịch Vụ">
+        </div>
+        <div class="container" style="align-items: center;">
+            <input type="button" class="btn-primary btn_rate" value="Lãi Suất">
+        </div>
+    </div>
+
+
     <div class="form_guitien" id="form_guitien">
         <div class="container form_login">
             <form class="form_info" action="" method="POST">
@@ -219,7 +307,7 @@
                             <label for="CMND">CMND</label>
                             <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="Name">Họ Tên Khách Hàng</label>
                             <input type="text" class="form-control" id="Name" name="Name" autocomplete="off" required>
@@ -250,7 +338,7 @@
                             <label for="myState">State</label>
                             <select id="myState" class="form-control">
                                 <option value="" selected>CHỌN DỊCH VỤ</option>
-                                
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -269,7 +357,7 @@
             </form>
         </div>
     </div>
-    <div class="form_ruttien" id="form_ruttien" >
+    <div class="form_ruttien" id="form_ruttien">
         <div class="container form_login">
             <form class="form_info" id="btn_ruttien" action="./php/setPhieu.php" method="POST">
                 <span onclick="document.getElementById('form_ruttien').style.display='none'" class="close"
@@ -304,7 +392,7 @@
                             <label for="myState">Dịch Vụ</label>
                             <select id="myState" class="form-control">
                                 <option value="cn" selected>CHỌN DỊCH VỤ</option>
-                                
+
                             </select>
                         </div>
                     </div>
@@ -326,8 +414,8 @@
                         </div>
                         <div class="form-group">
                             <label for="LaiSuat">Lãi Suất</label>
-                            <input type="Number" step="any" class="form-control" id="LaiSuat" name="LaiSuat" autocomplete="off"
-                                required>
+                            <input type="Number" step="any" class="form-control" id="LaiSuat" name="LaiSuat"
+                                autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <label for="TienLai">Số Tiền Lãi</label>
@@ -353,31 +441,29 @@
                 document.getElementById('edit_customer').style.display = 'none'" class="close"
                     title="Close form">&times;</span>
                 <h2>Khách Hàng</h2>
-                        <div class="form-group">
-                            <label for="CMND">CMND</label>
-                            <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="NgayCap">Ngày Cấp</label>
-                            <input type="date" class="form-control" id="NgayCap" name="NgayCap" autocomplete="off"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Name">Họ Tên Khách Hàng</label>
-                            <input type="text" class="form-control" id="Name" name="Name" autocomplete="off" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Address">Địa Chỉ</label>
-                            <input type="text" class="form-control" id="Address" name="Address" autocomplete="off"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="MaCN">Mã Chi Nhánh</label>
-                            <input type="text" class="form-control" id="MaCN" name="MaCN" autocomplete="off"
-                                required>
-                        </div>
+                <div class="form-group">
+                    <label for="CMND">CMND</label>
+                    <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="NgayCap">Ngày Cấp</label>
+                    <input type="date" class="form-control" id="NgayCap" name="NgayCap" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label for="Name">Họ Tên Khách Hàng</label>
+                    <input type="text" class="form-control" id="Name" name="Name" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label for="Address">Địa Chỉ</label>
+                    <input type="text" class="form-control" id="Address" name="Address" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label for="MaCN">Mã Chi Nhánh</label>
+                    <input type="text" class="form-control" id="MaCN" name="MaCN" autocomplete="off" required>
+                </div>
                 <!-- <button type="submit" id="save_customer" class="btn btn-default btn-primary save_customer" >Save</button> -->
-                <button type="button" id="edit_customer" class="btn btn-default btn-primary edit_customer" style="display:none" >Save</button>
+                <button type="button" id="edit_customer" class="btn btn-default btn-primary edit_customer"
+                    style="display:none">Save</button>
             </form>
         </div>
     </div>
@@ -388,27 +474,25 @@
                     <span onclick="document.getElementById('form_service').style.display='none'" class="close"
                         title="Close form">&times;</span>
                     <h2>Dịch Vụ</h2>
-                            <div class="form-group">
-                                <label for="myState">Dịch Vụ</label>
-                                <select id="myState" class="form-control">
-                                    <option value="cn" selected>Chọn Dịch Vụ</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="MaPhieu">Mã Dịch Vụ</label>
-                                <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off"
-                                    disabled >
-                            </div>
-                            <div class="form-group">
-                                <label for="KyHang">Kỳ Hạng</label>
-                                <input type="number" class="form-control" id="KyHang" name="KyHang" autocomplete="off"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="TenDichVu">Tên Dịch Vụ</label>
-                                <input type="text" class="form-control" id="TenDichVu" name="TenDichVu" autocomplete="off"
-                                    required>
-                            </div>
+                    <div class="form-group">
+                        <label for="myState">Dịch Vụ</label>
+                        <select id="myState" class="form-control">
+                            <option value="cn" selected>Chọn Dịch Vụ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="MaPhieu">Mã Dịch Vụ</label>
+                        <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="KyHang">Kỳ Hạng</label>
+                        <input type="number" class="form-control" id="KyHang" name="KyHang" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="TenDichVu">Tên Dịch Vụ</label>
+                        <input type="text" class="form-control" id="TenDichVu" name="TenDichVu" autocomplete="off"
+                            required>
+                    </div>
                     <button type="button" id="btn_DV" class="btn btn-default btn-primary">Save</button>
                 </form>
             </div>
@@ -421,92 +505,29 @@
                     <span onclick="document.getElementById('form_rate').style.display='none'" class="close"
                         title="Close form">&times;</span>
                     <h2>Lãi Suất</h2>
-                            <div class="form-group">
-                                <label for="myState">Dịch Vụ</label>
-                                <select id="myState" class="form-control">
-                                    <option value="cn" selected>Chọn Dịch Vụ</option>
-                                </select>
-                            </div>  
-                            <div class="form-group">
-                                <label for="MaPhieu">Mã Dịch Vụ</label>
-                                <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off"
-                                    disabled>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="TenDichVu">Lãi Suất</label>
-                                <input type="text" step="any" class="form-control" id="LaiSuat" name="LaiSuat" autocomplete="off"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="NgauAp">Ngày Áp Dụng</label>
-                                <input type="date" class="form-control" id="NgauAp" name="NgauAp" autocomplete="off"
-                                    required>
-                            </div>
+                    <div class="form-group">
+                        <label for="myState">Dịch Vụ</label>
+                        <select id="myState" class="form-control">
+                            <option value="cn" selected>Chọn Dịch Vụ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="MaPhieu">Mã Dịch Vụ</label>
+                        <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="TenDichVu">Lãi Suất</label>
+                        <input type="text" step="any" class="form-control" id="LaiSuat" name="LaiSuat"
+                            autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="NgauAp">Ngày Áp Dụng</label>
+                        <input type="date" class="form-control" id="NgauAp" name="NgauAp" autocomplete="off" required>
+                    </div>
                     <button type="button" id="btn_rate" class="btn btn-default btn-primary">Save</button>
                 </form>
             </div>
-        </div>
-    </div>
-    <div class="conatiner-fluid">
-        <div class="container-fluid grid_view">
-            <h1 style="text-align: center; color: white;">Danh Sách Khách Hàng</h1>
-            <table id="table_khach" class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">HỌ VÀ TÊN</th>
-                        <th scope="col">ĐỊA CHỈ</th>
-                        <th scope="col">CMND</th>
-                        <th scope="col">NGÀY NHẬP PHIẾU</th>
-                        <th scope="col">CHI NHÁNH</th>
-                        <th scope="col">THAO TÁC</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-    <div class="container-fluid grid_view_Phieu">
-        <h1 style="text-align: center; color: white;">Danh Sách Phiếu</h1>
-        <form style="float: right; margin-bottom: 10px;">  
-            <div class="form-inline">                
-                <select id="Time" class="form-control "style="width:300px ,height:25px;margin-right:10px">
-                    <option value="cn" selected>Chọn thời gian để lọc</option>
-                    <option value="day" selected>1 Ngày</option>
-                    <option value="month" selected>1 Tháng</option>
-                    <option value="year" selected>1 Năm</option>
-                </select>
-                <button type="button" id="btn_search"><i class="fa fa-search" style="height:25px"></i></button>
-                
-            </div>
-            
-        </form>
-        <table id="table_phieu" class="table table_phieu">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Mã Phiếu</th>
-                    <th scope="col">Ngày Gửi</th>
-                    <th scope="col">Lãi Suất</th>
-                    <th scope="col">Số Tiền Gửi</th>
-                    <th scope="col">Ngày Đến Hạn</th>
-                    <th scope="col">Nhân Viên Gửi</th>
-                    <th scope="col">Nhân Viên Rút</th>
-                    <th scope="col">Thao Tác</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-    <div class="group-inline">
-        <div class="container" style="align-items: center;">
-            <input type="button" class="btn-primary btn_guitien" value="Phiếu Gửi Tiền">
-        </div>
-        <div class="container" style="align-items: center;">
-            <input type="button" class="btn-primary btn_ruttien" value="Phiếu Rút Tiền">
-        </div>
-        <div class="container" style="align-items: center;">
-            <input type="button" class="btn-primary btn_service" value="Dịch Vụ">
-        </div>
-        <div class="container" style="align-items: center;">
-            <input type="button" class="btn-primary btn_rate" value="Lãi Suất">
         </div>
     </div>
     <script>
@@ -535,9 +556,9 @@
             //     alert($(this).data('cmnd'))
 
             // });
-                // $('.Edit').click(function () { 
-                // alert($(this).data('cmnd'))
-                // });
+            // $('.Edit').click(function () { 
+            // alert($(this).data('cmnd'))
+            // });
         });
     </script>
 </body>
