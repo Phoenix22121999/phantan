@@ -110,7 +110,12 @@
     color: white;
     }
     table,tr,th,td{
+        position: relative;
         border: 1px solid white;
+    }
+    #table_phieu tr,th,td{
+        min-width: 200px;
+        overflow: auto;
     }
     @keyframes moveDown {
         0% {
@@ -475,7 +480,7 @@
             </div>
             
         </form>
-        <table id="table_phieu" class="table">
+        <table id="table_phieu" class="table table_phieu">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Mã Phiếu</th>
