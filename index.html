@@ -30,7 +30,8 @@
     .form_ruttien,
     .form_customer,
     .form_service,
-    .form_rate {
+    .form_rate,
+    .form_add_user{
         display: none;
         position: fixed;
         left: 0;
@@ -278,9 +279,6 @@
             <input type="button" class="btn-primary btn_ruttien" value="Phiếu Rút Tiền">
         </div>
         <div class="container" style="align-items: center;">
-            <input type="button" class="btn-primary btn_customer" value="Thêm Khách Hàng">
-        </div>
-        <div class="container" style="align-items: center;">
             <input type="button" class="btn-primary btn_service" value="Dịch Vụ">
         </div>
         <div class="container" style="align-items: center;">
@@ -438,6 +436,36 @@
             </form>
         </div>
     </div>
+
+    <div class="form_add_user" id="form_add_user">
+        <div class="container form_login">
+            <form class="form_info" action="" method="POST">
+                <span onclick="document.getElementById('form_add_user').style.display='none';" class="close"
+                    title="Close form">&times;</span>
+                <h2>Đăng Ký</h2>
+                <div class="form-group">
+                    <label for="CMND">CMND</label>
+                    <input type="text" class="form-control" id="CMND" name="CMND" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label for="re-password">Re-Password</label>
+                    <input type="password" class="form-control" id="re-password" name="re-password" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <label for="MaCN">Mã Chi Nhánh</label>
+                    <input type="text" class="form-control" id="MaCN" name="MaCN" autocomplete="off" required>
+                </div>
+                <button type="button" class="btn btn-default btn-primary btn_adduser">Save</button>
+            </form>
+        </div>
+    </div>
+
+
+
     <div class="form_customer" id="form_customer">
         <div class="container form_login" style="width:400px">
             <form class="form_info" action="" method="POST">
@@ -543,8 +571,8 @@
             $('.btn_ruttien').on('click', function () {
                 document.getElementById('form_ruttien').style.display = 'block';
             });
-            $('.btn_customer').on('click', function () {
-                document.getElementById('form_customer').style.display = 'block';
+            $('.btn_signup').on('click', function () {
+                document.getElementById('form_add_user').style.display = 'block';
             });
             $('.btn_service').on('click', function () {
                 document.getElementById('form_service').style.display = 'block';
