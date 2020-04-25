@@ -23,7 +23,7 @@ $data = array();
 $data_tmp = array();
 $i = 1;
 while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_BOTH)) {
-    $data_tmp[$i] = array('MaPhieu' => $row['MAPHIEU'], 'cmnd' => $row['CMND'], 'NgayGui' => $row['NGAYGUI'], 'LaiSuat' => $row['LAISUAT'], 'TienGui' =>  $row['SOTIEN_GUI'], 'NgayDenHan' =>  $row['NGAYDENHAN'], 'GDVGui' =>  $row['MAGDV_LPG'], 'GDVRut' =>  $row['MAGDV_LPR']);
+    $data_tmp[$i] = array('MaPhieu' => $row['MAPHIEU'], 'MaDV' => $row['MADV'], 'cmnd' => $row['CMND'], 'NgayGui' => $row['NGAYGUI'], 'LaiSuat' => $row['LAISUAT'], 'TienGui' =>  $row['SOTIEN_GUI'], 'NgayDenHan' =>  $row['NGAYDENHAN'], 'GDVGui' =>  $row['MAGDV_LPG'], 'GDVRut' =>  $row['MAGDV_LPR']);
     $i++;
     // echo $row['LastName'] . ", " . $row['FirstName'] . "<br />";
 }

@@ -5,16 +5,31 @@ $(document).ready(function () {
         $(select).val(fur.toISOString().slice(0, 10));
     }
 
-    $('#form_ruttien #SoTien').keyup(function () { 
-        console.log($('#form_ruttien #NgayRut').val())
-        var han = new Date($('#form_ruttien #NgayRut').val())
-        var now = new Date($('#form_ruttien #NgayGui').val())
-        console.log(gui)
-        if($('#form_ruttien #LaiSuat').val()==' '){
-            lai = 0
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
         }
+        return "";
+    } 
+
+    // $('#form_ruttien #SoTien').keyup(function () { 
+    //     console.log($('#form_ruttien #NgayRut').val())
+    //     var han = new Date($('#form_ruttien #NgayRut').val())
+    //     var now = new Date($('#form_ruttien #NgayGui').val())
+    //     console.log(gui)
+    //     if($('#form_ruttien #LaiSuat').val()==' '){
+    //         lai = 0
+    //     }
     
-    });
+    // });
 
     $('.btn_ruttien').click(function () { 
         let today = new Date()
@@ -42,5 +57,23 @@ $(document).ready(function () {
                 $('#form_ruttien #LaiSuat').val(obj.LaiSuat);
             }
         });
+    });
+    $('#form_ruttien .save_ruttien').click(function () { 
+        $.ajax({
+            type: "post",
+            url: "./php/updatePhieu.php",
+            data: {
+                CMND: $('#form_ruttien #CMND').val(),
+                NgayRut: $('#form_ruttien #NgayRut').val(),
+                TienLai :$('#form_ruttien #TienLai').val(),
+                MaGDVR : getCookie('username')
+            },
+            success: function (response) {
+                if(response == 1){
+                    alert('Cập Nhật Thành Công')
+                }
+            }
+        });
+        
     });
 });
