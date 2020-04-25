@@ -160,9 +160,9 @@ $(document).ready(function () {
         
         window.location.replace("./login.html")
     }
-    if (getCookie('role')==1) {
-        $('#btn_admin').css('display', 'block');
-    }
+    
+    $('#btn_admin').css('display', 'block');
+    
     $('#btn_logout').click(function () { 
         $.ajax({
             type: "post",
