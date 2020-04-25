@@ -52,12 +52,13 @@ $(document).ready(function () {
     });
     
     
-    function getKH(cmnd = null) {
+    function getKH(cmnd = null,role = null) {
         $.ajax({
             type: "post",
             url: "./php/get_inf.php",
             data:{
-                cmnd : cmnd
+                cmnd : cmnd,
+                role : role
             },
             success: function (response) {
                 var obj = JSON.parse(response)

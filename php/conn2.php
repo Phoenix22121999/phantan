@@ -1,14 +1,15 @@
 <?php
-$CN = $_COOKIE['CN'];
-if ($CN == 'CN1') {
+$CN = $_COOKIE['role'];
+if ($CN == 1) {
     // $serverName = "DESKTOP-1DPN8B8\ACCOUNT_SERVER2"; //serverName\instanceName, portNumber (default is 1433)
     // $connectionInfo = array("Database" => "QLTK", "UID" => "sa", "PWD" => "123456");
     require('connCN1.php');
-} else if ($CN == 'CN2') {
+} else if ($CN == 2) {
     // $serverName = "25.89.202.22,1433"; //serverName\instanceName, portNumber (default is 1433)
     // $connectionInfo = array("Database" => "QLTK", "UID" => "sa", "PWD" => "123456");
     require('connCN2.php');
-} else if ($CN == 'admin') {
+} else if ($CN == 3) {
+
     // $serverName = "25.89.202.22,1433"; //serverName\instanceName, portNumber (default is 1433)
     // $connectionInfo = array("Database" => "QLTK", "UID" => "sa", "PWD" => "123456");
     require('connAD.php');

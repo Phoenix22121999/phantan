@@ -9,8 +9,7 @@ $(document).ready(function () {
         var tmp = $('#email').val().split("_")
         var CN =tmp[1]
         if($('#email').val()=='admin'){
-            CN = 'admin'
-            setCookie('CN',CN,1)
+            setCookie('CN','admin',1)
         }else if(CN == 'CN1' || CN =='CN2'){
             setCookie('CN',CN,1)
         }else {
