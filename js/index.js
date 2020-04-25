@@ -4,8 +4,37 @@ $(document).ready(function () {
         getKH()
     }else if (getCookie('role')==4) {
         getKH(getCookie('username'))
+        $('.btn_ruttien').css('display', 'none');
+        $('.btn_guitien').css('display', 'none');
+        $('.btn_service').css('display', 'none');
+        $('.btn_rate').css('display', 'none');
+        $('.btn_signup').val('Đổi Mật Khẩu');
     }
 
+    $('.btn_signup').click(function () { 
+        $('#form_add_user #CMND').val(getCookie('username'));
+    });
+    $('#form_add_user .btn_adduser').click(function () { 
+        if($('#form_add_user #password').val() == $('#form_add_user #re-password').val()){
+            $.ajax({
+                type: "post",
+                url: "./php/updateMatKhau.php",
+                data: {
+                    CMND: $('#form_add_user #CMND').val(),
+                    NewPass: $('#form_add_user #password').val(),
+                },
+                success: function (response) {
+                    if(response==1){
+                        alert('Cập Nhật Thành Công')
+                    }else(
+                        alert(response)
+                    )
+                }
+            });
+        }else{
+            alert('Mật Khẩu Không Trùng')
+        }
+    });
     
     
     function getKH(cmnd = null) {

@@ -1,6 +1,7 @@
 <?php
 require_once("conn2.php");
-if (isset($_POST['cmnd'])) {
+$CMND = $_POST['cmnd'];
+if ($CMND != null) {
     $CMND = $_POST['cmnd'];
     $sql = "SELECT  [HOTEN],
                 [DIACHI],
@@ -10,6 +11,7 @@ if (isset($_POST['cmnd'])) {
         FROM [QLTK].[dbo].[KHACHHANG]
         WHERE CMND = '$CMND'";
 } else {
+
     $sql = "SELECT  [HOTEN],
                 [DIACHI],
                 [CMND],

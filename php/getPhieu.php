@@ -13,7 +13,8 @@ if ($time == 'day') {
     $final = date("Y-m-d", strtotime("-1 year", strtotime($date)));
 }
 // echo $final;
-if (isset($_POST['cmnd'])) {
+$CMND = $_POST['cmnd'];
+if ($CMND != null) {
     $CMND = $_POST['cmnd'];
     $sql = "SELECT *
         FROM PHIEU
