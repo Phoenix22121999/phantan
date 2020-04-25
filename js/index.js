@@ -9,19 +9,34 @@ $(document).ready(function () {
         $('.btn_service').css('display', 'none');
         $('.btn_rate').css('display', 'none');
         $('.btn_signup').val('Đổi Mật Khẩu');
+        $('#form_add_user #CMND').prop('disabled', true);
+        $('#form_add_user #MaCN').prop('disabled', true);
+        $('#form_add_user #MaRole').prop('disabled', true);
     }
 
     $('.btn_signup').click(function () { 
-        $('#form_add_user #CMND').val(getCookie('username'));
+        if(getCookie('role')==4){
+            $('#form_add_user #CMND').val(getCookie('username'));
+            $('#form_add_user #MaCN').val(getCookie('CN'));
+            $('#form_add_user #MaRole').val(getCookie('role'));
+        }
+        
     });
-    $('#form_add_user .btn_adduser').click(function () { 
+    $('#form_add_user .btn_adduser').click(function () {
+        if(getCookie('role')==4){
+            var url = "./php/updateMatKhau.php"
+        }else {
+            var url = "./php/createAcc.php"
+        }
         if($('#form_add_user #password').val() == $('#form_add_user #re-password').val()){
             $.ajax({
                 type: "post",
-                url: "./php/updateMatKhau.php",
+                url: url,
                 data: {
                     CMND: $('#form_add_user #CMND').val(),
                     NewPass: $('#form_add_user #password').val(),
+                    CN: $('#form_add_user #MaCN').val(),
+                    role: $('#form_add_user #MaRole').val(),
                 },
                 success: function (response) {
                     if(response==1){
