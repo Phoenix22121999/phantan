@@ -342,9 +342,9 @@ $(document).ready(function () {
         }
         
     });
-    function getPhieu(cmnd = null) {
+    async function getPhieu(cmnd = null) {
         $('#table_phieu .phieu_list').empty();
-        $.ajax({
+        await $.ajax({
             type: "post",
             url: "./php/getPhieu.php",
             data: {
@@ -419,12 +419,15 @@ $(document).ready(function () {
                 }
             }
         });
+        return true
     }
-    $('#btn_search').click(function () { 
+    $('#btn_search').click(async function () { 
         if(getCookie('role')==4){
-            getPhieu(getCookie('username'))
+            await getPhieu(getCookie('username'))
+            $('.save_ruttien').prop('disabled', true);
         }else{
             getPhieu()
+            
         }
         
     });
