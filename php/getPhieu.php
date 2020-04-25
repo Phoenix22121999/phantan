@@ -1,6 +1,7 @@
 <?php
 require_once("conn2.php");
 $time = $_POST['time'];
+
 $date = date('Y-m-d', time());
 // echo $date . " ";
 // echo $final;
@@ -12,9 +13,16 @@ if ($time == 'day') {
     $final = date("Y-m-d", strtotime("-1 year", strtotime($date)));
 }
 // echo $final;
-$sql = "SELECT *
+if (isset($_POST['cmnd'])) {
+    $CMND = $_POST['cmnd'];
+    $sql = "SELECT *
+        FROM PHIEU
+        WHERE NGAYGUI >=  '$final' AND CMND = '$CMND'";
+} else {
+    $sql = "SELECT *
         FROM PHIEU
         WHERE NGAYGUI >=  '$final'";
+}
 $stmt = sqlsrv_query($conn, $sql);
 if ($stmt === false) {
     die(print_r(sqlsrv_errors(), true));

@@ -2,12 +2,19 @@ $(document).ready(function () {
     if(getCookie('role')!=4){
         getOP()
         getKH()
+    }else if (getCookie('role')==4) {
+        getKH(getCookie('username'))
     }
+
     
-    function getKH() {
+    
+    function getKH(cmnd = null) {
         $.ajax({
             type: "post",
             url: "./php/get_inf.php",
+            data:{
+                cmnd : cmnd
+            },
             success: function (response) {
                 var obj = JSON.parse(response)
                 //console.log(obj)
@@ -37,23 +44,23 @@ $(document).ready(function () {
                         'data-macn' : obj[i].MACN,
                         text : 'Sửa'
                     })
-                    var span = $('<span>',{
-                        text : ' | '
-                    })
-                    var del = $('<a>',{
-                        href : '#',
-                        'class': 'Delete',
-                        'data-hoten' : obj[i].HoTen,
-                        'data-diachi' :  obj[i].diachi,
-                        'data-cmnd' : obj[i].cmnd,
-                        'data-ngaycap' :obj[i].ngaycap.date.substr(0, 10),
-                        'data-macn' : obj[i].MACN,
-                        text : 'Xóa'
-                    })
+                    // var span = $('<span>',{
+                    //     text : ' | '
+                    // })
+                    // var del = $('<a>',{
+                    //     href : '#',
+                    //     'class': 'Delete',
+                    //     'data-hoten' : obj[i].HoTen,
+                    //     'data-diachi' :  obj[i].diachi,
+                    //     'data-cmnd' : obj[i].cmnd,
+                    //     'data-ngaycap' :obj[i].ngaycap.date.substr(0, 10),
+                    //     'data-macn' : obj[i].MACN,
+                    //     text : 'Xóa'
+                    // })
                     var action = $('<td>')
                     $(edit).appendTo(action);
-                    $(span).appendTo(action);
-                    $(del).appendTo(action);
+                    // $(span).appendTo(action);
+                    // $(del).appendTo(action);
                     var row = $('<tr>',{'class': 'comment'})
                     $(HoTen).appendTo(row);
                     $(diachi).appendTo(row);
@@ -291,14 +298,15 @@ $(document).ready(function () {
         }
         
     });
-    
-    $('#btn_search').click(function () { 
+    function getPhieu(cmnd = null) {
         $('#table_phieu .phieu_list').empty();
         $.ajax({
             type: "post",
             url: "./php/getPhieu.php",
             data: {
-                time: $('.grid_view_Phieu #Time').val()
+                time: $('.grid_view_Phieu #Time').val(),
+                cmnd:cmnd
+                
             },
             success: function (response) {
                 var obj = JSON.parse(response)
@@ -367,6 +375,14 @@ $(document).ready(function () {
                 }
             }
         });
+    }
+    $('#btn_search').click(function () { 
+        if(getCookie('role')==4){
+            getPhieu(getCookie('username'))
+        }else{
+            getPhieu()
+        }
+        
     });
     // $('.PhieuRut').click(function () { 
     //     console.log('dat')
