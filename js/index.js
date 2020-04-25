@@ -273,7 +273,11 @@ $(document).ready(function () {
             },
             success: function (response) {
                 if(response == 1){
+                    $('#form_rate #myState').empty().append('<option>Chọn Dịch Vụ</option>');
                     $('#form_service #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+                    $('#form_guitien #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+                    $('#form_ruttien #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+
                     getOP()
                     alert('Lưu thành công')
                 }
@@ -298,6 +302,10 @@ $(document).ready(function () {
             success: function (response) {
                 if(response == 1){
                     $('#form_rate #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+                    $('#form_service #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+                    $('#form_guitien #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+                    $('#form_ruttien #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+
                     getOP()
                     alert('Lưu thành công')
                 }
@@ -333,6 +341,9 @@ $(document).ready(function () {
                 success: function (response) {
                     if(response == 1){
                         $('#form_rate #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+                        $('#form_service #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+                        $('#form_guitien #myState').empty().append('<option>Chọn Dịch Vụ</option>');
+                        $('#form_ruttien #myState').empty().append('<option>Chọn Dịch Vụ</option>');
                         getOP()
                         alert('Lưu thành công')
                     }
