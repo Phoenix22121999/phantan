@@ -8,10 +8,12 @@ $(document).ready(function () {
     $('#btn_submit').click(function () { 
         if($('#email').val()!='admin'){
             var CN = $('#email').val().split("_")
+            setCookie('CN',CN[1],1)
         }else if($('#email').val()=='admin'){
-            CN = 'TT'
+            CN = 'admin'
+            setCookie('CN',CN,1)
         }      
-        setCookie('CN',CN[1],1)
+        
         $.ajax({
             type: "post",
             url: "./php/login.php",

@@ -330,7 +330,7 @@
                                 required>
                         </div>
                         <div class="form-group">
-                            <label for="NgayRut">Ngày Rút</label>
+                            <label for="NgayRut">Ngày Đến Hạn</label>
                             <input type="date" class="form-control" id="NgayRut" name="NgayRut" autocomplete="off"
                                 required>
                         </div>
@@ -359,7 +359,7 @@
     </div>
     <div class="form_ruttien" id="form_ruttien">
         <div class="container form_login">
-            <form class="form_info" id="btn_ruttien" action="./php/setPhieu.php" method="POST">
+            <form class="form_info"  action="./php/setPhieu.php" method="POST">
                 <span onclick="document.getElementById('form_ruttien').style.display='none'" class="close"
                     title="Close form">&times;</span>
                 <h2>Phiếu Rút Tiền</h2>
@@ -368,7 +368,7 @@
                         <div class="form-group">
                             <label for="MaPhieu">Mã Phiếu</label>
                             <input type="text" class="form-control" id="MaPhieu" name="MaPhieu" autocomplete="off"
-                                required>
+                                disabled>
                         </div>
                         <div class="form-group">
                             <label for="CMND">CMND</label>
@@ -392,7 +392,6 @@
                             <label for="myState">Dịch Vụ</label>
                             <select id="myState" class="form-control">
                                 <option value="cn" selected>CHỌN DỊCH VỤ</option>
-
                             </select>
                         </div>
                     </div>
@@ -400,6 +399,11 @@
                         <div class="form-group">
                             <label for="NgayGui">Ngày Gửi</label>
                             <input type="date" class="form-control" id="NgayGui" name="NgayGui" autocomplete="off"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NgayDenHan">Ngày Đến Hạn</label>
+                            <input type="date" class="form-control" id="NgayDenHan" name="NgayDenHan" autocomplete="off"
                                 required>
                         </div>
                         <div class="form-group">
@@ -429,7 +433,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default btn-primary save_ruttien">Save</button>
+                <button type="button" class="btn btn-default btn-primary save_ruttien">Save</button>
             </form>
         </div>
     </div>

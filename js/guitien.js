@@ -44,6 +44,31 @@ $(document).ready(function () {
     });
     
     $('#form_guitien .save_guitien').click(function () { 
-        console.log('dâdada')
+        if($('#form_guitien #CMND').val()!='' && $('#myState option:selected').text() !='' && $('#form_guitien #NgayGui').val()!='' && $('#form_guitien #LaiSuat').val()!='' && $('#form_guitien #SoTien').val()!='' && $('#form_guitien #NgayRut').val()!='' && $('#form_guitien #MaGDV').val()!=''){
+            $.ajax({
+                type: "post",
+                url: "./php/createPhieu.php",
+                data: {
+                    HoTen: $('#form_guitien #Name').val(),
+                    DiaChi: $('#form_guitien #Address').val(),
+                    CMND: $('#form_guitien #CMND').val(),
+                    MaDV: $('#myState option:selected').text(),
+                    NgayGui: $('#form_guitien #NgayGui').val(),
+                    LaiSuat: $('#form_guitien #LaiSuat').val(),
+                    SoTien: $('#form_guitien #SoTien').val(),
+                    NgayDenHan: $('#form_guitien #NgayRut').val(),
+                    MaGDVG: $('#form_guitien #MaGDV').val(),
+                    CN: getCookie('CN')
+                },
+                success: function (response) {
+                    if(response==1){
+                        alert('Nhập Phiếu Thành Công')
+                    }
+                }
+            });
+        }else{
+            alert('Nhập Thiếu Thông Tin')
+        }
+        
     });
 });
