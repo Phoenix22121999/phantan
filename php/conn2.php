@@ -12,6 +12,10 @@ if ($CN == 'CN1') {
     // $serverName = "25.89.202.22,1433"; //serverName\instanceName, portNumber (default is 1433)
     // $connectionInfo = array("Database" => "QLTK", "UID" => "sa", "PWD" => "123456");
     require('connAD.php');
+} else {
+    // $serverName = "25.89.202.22,1433"; //serverName\instanceName, portNumber (default is 1433)
+    // $connectionInfo = array("Database" => "QLTK", "UID" => "sa", "PWD" => "123456");
+    require('connAD.php');
 }
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 if (!$conn) {

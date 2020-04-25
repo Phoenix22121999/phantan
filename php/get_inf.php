@@ -1,11 +1,24 @@
 <?php
 require_once("conn2.php");
-$sql = "SELECT  [HOTEN],
+if (isset($_POST['cmnd'])) {
+    $CMND = $_POST['cmnd'];
+    $sql = "SELECT  [HOTEN],
+                [DIACHI],
+                [CMND],
+                [NGAYCAP],
+                [MACN]
+        FROM [QLTK].[dbo].[KHACHHANG]
+        WHERE CMND = '$CMND'";
+} else {
+    $sql = "SELECT  [HOTEN],
                 [DIACHI],
                 [CMND],
                 [NGAYCAP],
                 [MACN]
         FROM [QLTK].[dbo].[KHACHHANG]";
+}
+
+
 $stmt = sqlsrv_query($conn, $sql);
 if ($stmt === false) {
     die(print_r(sqlsrv_errors(), true));
