@@ -161,7 +161,7 @@ $(document).ready(function () {
         window.location.replace("./login.html")
     }
     
-    $('#btn_admin').css('display', 'block');
+    
     
     $('#btn_logout').click(function () { 
         $.ajax({
