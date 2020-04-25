@@ -6,11 +6,15 @@ $(document).ready(function () {
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
     $('#btn_submit').click(function () { 
-        if($('#email').val()!='admin'){
-            var CN = $('#email').val().split("_")
-            setCookie('CN',CN[1],1)
-        }else if($('#email').val()=='admin'){
+        var tmp = $('#email').val().split("_")
+        var CN =tmp[1]
+        if($('#email').val()=='admin'){
             CN = 'admin'
+            setCookie('CN',CN,1)
+        }else if(CN == 'CN1' || CN =='CN2'){
+            setCookie('CN',CN,1)
+        }else {
+            CN = $('#email').val()
             setCookie('CN',CN,1)
         }      
         
@@ -20,7 +24,7 @@ $(document).ready(function () {
             data: {
                 username : $('#email').val(),
                 pwd : $('#pwd').val(),
-                cn: CN[1],
+                cn: CN,
             },
             success: function (response) {
                 if (response == 1) {
